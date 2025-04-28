@@ -1,0 +1,3 @@
+/home/getcandy/show-helper/build/debug/CMakeFiles/dcdl-helper.dir
+/home/getcandy/show-helper/build/debug/CMakeFiles/edit_cache.dir
+/home/getcandy/show-helper/build/debug/CMakeFiles/rebuild_cache.dir
