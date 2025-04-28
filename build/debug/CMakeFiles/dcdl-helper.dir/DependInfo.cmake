@@ -8,6 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/getcandy/show-helper/src/Dictionary.cpp" "CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o" "gcc" "CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o.d"
+  "/home/getcandy/show-helper/src/LettersRound.cpp" "CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o" "gcc" "CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o.d"
+  "/home/getcandy/show-helper/src/Utils.cpp" "CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o" "gcc" "CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o.d"
   "/home/getcandy/show-helper/src/main.cpp" "CMakeFiles/dcdl-helper.dir/src/main.cpp.o" "gcc" "CMakeFiles/dcdl-helper.dir/src/main.cpp.o.d"
   )
 

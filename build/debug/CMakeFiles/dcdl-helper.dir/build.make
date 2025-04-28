@@ -69,10 +69,52 @@ include CMakeFiles/dcdl-helper.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/dcdl-helper.dir/flags.make
 
+CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o: CMakeFiles/dcdl-helper.dir/flags.make
+CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o: /home/getcandy/show-helper/src/Dictionary.cpp
+CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o: CMakeFiles/dcdl-helper.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o -MF CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o.d -o CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o -c /home/getcandy/show-helper/src/Dictionary.cpp
+
+CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/getcandy/show-helper/src/Dictionary.cpp > CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.i
+
+CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/getcandy/show-helper/src/Dictionary.cpp -o CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.s
+
+CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o: CMakeFiles/dcdl-helper.dir/flags.make
+CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o: /home/getcandy/show-helper/src/LettersRound.cpp
+CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o: CMakeFiles/dcdl-helper.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o -MF CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o.d -o CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o -c /home/getcandy/show-helper/src/LettersRound.cpp
+
+CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/getcandy/show-helper/src/LettersRound.cpp > CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.i
+
+CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/getcandy/show-helper/src/LettersRound.cpp -o CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.s
+
+CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o: CMakeFiles/dcdl-helper.dir/flags.make
+CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o: /home/getcandy/show-helper/src/Utils.cpp
+CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o: CMakeFiles/dcdl-helper.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o -MF CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o.d -o CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o -c /home/getcandy/show-helper/src/Utils.cpp
+
+CMakeFiles/dcdl-helper.dir/src/Utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcdl-helper.dir/src/Utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/getcandy/show-helper/src/Utils.cpp > CMakeFiles/dcdl-helper.dir/src/Utils.cpp.i
+
+CMakeFiles/dcdl-helper.dir/src/Utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcdl-helper.dir/src/Utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/getcandy/show-helper/src/Utils.cpp -o CMakeFiles/dcdl-helper.dir/src/Utils.cpp.s
+
 CMakeFiles/dcdl-helper.dir/src/main.cpp.o: CMakeFiles/dcdl-helper.dir/flags.make
 CMakeFiles/dcdl-helper.dir/src/main.cpp.o: /home/getcandy/show-helper/src/main.cpp
 CMakeFiles/dcdl-helper.dir/src/main.cpp.o: CMakeFiles/dcdl-helper.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dcdl-helper.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dcdl-helper.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dcdl-helper.dir/src/main.cpp.o -MF CMakeFiles/dcdl-helper.dir/src/main.cpp.o.d -o CMakeFiles/dcdl-helper.dir/src/main.cpp.o -c /home/getcandy/show-helper/src/main.cpp
 
 CMakeFiles/dcdl-helper.dir/src/main.cpp.i: cmake_force
@@ -85,15 +127,21 @@ CMakeFiles/dcdl-helper.dir/src/main.cpp.s: cmake_force
 
 # Object files for target dcdl-helper
 dcdl__helper_OBJECTS = \
+"CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o" \
+"CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o" \
+"CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o" \
 "CMakeFiles/dcdl-helper.dir/src/main.cpp.o"
 
 # External object files for target dcdl-helper
 dcdl__helper_EXTERNAL_OBJECTS =
 
+bin/dcdl-helper: CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o
+bin/dcdl-helper: CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o
+bin/dcdl-helper: CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o
 bin/dcdl-helper: CMakeFiles/dcdl-helper.dir/src/main.cpp.o
 bin/dcdl-helper: CMakeFiles/dcdl-helper.dir/build.make
 bin/dcdl-helper: CMakeFiles/dcdl-helper.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/dcdl-helper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/getcandy/show-helper/build/debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/dcdl-helper"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dcdl-helper.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

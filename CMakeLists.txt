@@ -11,10 +11,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Include header files
 include_directories(include)
 
+#add_executable(dcdl-helper src/main.cpp src/Dictionary.cpp src/LettersRound.cpp src/Utils.cpp)
+
+
 # Source files
 file(GLOB SOURCES
     src/*.cpp
 )
+
+
 
 # Create the executable
 add_executable(dcdl-helper ${SOURCES})

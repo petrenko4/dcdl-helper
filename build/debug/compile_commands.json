@@ -1,6 +1,21 @@
 [
 {
   "directory": "/home/getcandy/show-helper/build/debug",
+  "command": "/usr/bin/c++  -I/home/getcandy/show-helper/include -g -Wall -Wextra -pedantic -std=gnu++17 -o CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o -c /home/getcandy/show-helper/src/Dictionary.cpp",
+  "file": "/home/getcandy/show-helper/src/Dictionary.cpp"
+},
+{
+  "directory": "/home/getcandy/show-helper/build/debug",
+  "command": "/usr/bin/c++  -I/home/getcandy/show-helper/include -g -Wall -Wextra -pedantic -std=gnu++17 -o CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o -c /home/getcandy/show-helper/src/LettersRound.cpp",
+  "file": "/home/getcandy/show-helper/src/LettersRound.cpp"
+},
+{
+  "directory": "/home/getcandy/show-helper/build/debug",
+  "command": "/usr/bin/c++  -I/home/getcandy/show-helper/include -g -Wall -Wextra -pedantic -std=gnu++17 -o CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o -c /home/getcandy/show-helper/src/Utils.cpp",
+  "file": "/home/getcandy/show-helper/src/Utils.cpp"
+},
+{
+  "directory": "/home/getcandy/show-helper/build/debug",
   "command": "/usr/bin/c++  -I/home/getcandy/show-helper/include -g -Wall -Wextra -pedantic -std=gnu++17 -o CMakeFiles/dcdl-helper.dir/src/main.cpp.o -c /home/getcandy/show-helper/src/main.cpp",
   "file": "/home/getcandy/show-helper/src/main.cpp"
 }

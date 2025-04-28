@@ -129,6 +129,78 @@ dcdl-helper/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/build
 .PHONY : dcdl-helper/fast
 
+src/Dictionary.o: src/Dictionary.cpp.o
+.PHONY : src/Dictionary.o
+
+# target to build an object file
+src/Dictionary.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.o
+.PHONY : src/Dictionary.cpp.o
+
+src/Dictionary.i: src/Dictionary.cpp.i
+.PHONY : src/Dictionary.i
+
+# target to preprocess a source file
+src/Dictionary.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.i
+.PHONY : src/Dictionary.cpp.i
+
+src/Dictionary.s: src/Dictionary.cpp.s
+.PHONY : src/Dictionary.s
+
+# target to generate assembly for a file
+src/Dictionary.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/Dictionary.cpp.s
+.PHONY : src/Dictionary.cpp.s
+
+src/LettersRound.o: src/LettersRound.cpp.o
+.PHONY : src/LettersRound.o
+
+# target to build an object file
+src/LettersRound.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.o
+.PHONY : src/LettersRound.cpp.o
+
+src/LettersRound.i: src/LettersRound.cpp.i
+.PHONY : src/LettersRound.i
+
+# target to preprocess a source file
+src/LettersRound.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.i
+.PHONY : src/LettersRound.cpp.i
+
+src/LettersRound.s: src/LettersRound.cpp.s
+.PHONY : src/LettersRound.s
+
+# target to generate assembly for a file
+src/LettersRound.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.s
+.PHONY : src/LettersRound.cpp.s
+
+src/Utils.o: src/Utils.cpp.o
+.PHONY : src/Utils.o
+
+# target to build an object file
+src/Utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o
+.PHONY : src/Utils.cpp.o
+
+src/Utils.i: src/Utils.cpp.i
+.PHONY : src/Utils.i
+
+# target to preprocess a source file
+src/Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/Utils.cpp.i
+.PHONY : src/Utils.cpp.i
+
+src/Utils.s: src/Utils.cpp.s
+.PHONY : src/Utils.s
+
+# target to generate assembly for a file
+src/Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/Utils.cpp.s
+.PHONY : src/Utils.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... dcdl-helper"
+	@echo "... src/Dictionary.o"
+	@echo "... src/Dictionary.i"
+	@echo "... src/Dictionary.s"
+	@echo "... src/LettersRound.o"
+	@echo "... src/LettersRound.i"
+	@echo "... src/LettersRound.s"
+	@echo "... src/Utils.o"
+	@echo "... src/Utils.i"
+	@echo "... src/Utils.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
