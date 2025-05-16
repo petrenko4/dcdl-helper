@@ -221,6 +221,9 @@ DCDLHelper_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 DCDLHelper_SOURCE_DIR:STATIC=/home/getcandy/show-helper
 
+//The directory containing a CMake configuration file for fmt.
+fmt_DIR:PATH=fmt_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

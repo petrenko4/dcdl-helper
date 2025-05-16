@@ -177,6 +177,30 @@ src/LettersRound.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/LettersRound.cpp.s
 .PHONY : src/LettersRound.cpp.s
 
+src/NumbersRound.o: src/NumbersRound.cpp.o
+.PHONY : src/NumbersRound.o
+
+# target to build an object file
+src/NumbersRound.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/NumbersRound.cpp.o
+.PHONY : src/NumbersRound.cpp.o
+
+src/NumbersRound.i: src/NumbersRound.cpp.i
+.PHONY : src/NumbersRound.i
+
+# target to preprocess a source file
+src/NumbersRound.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/NumbersRound.cpp.i
+.PHONY : src/NumbersRound.cpp.i
+
+src/NumbersRound.s: src/NumbersRound.cpp.s
+.PHONY : src/NumbersRound.s
+
+# target to generate assembly for a file
+src/NumbersRound.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dcdl-helper.dir/build.make CMakeFiles/dcdl-helper.dir/src/NumbersRound.cpp.s
+.PHONY : src/NumbersRound.cpp.s
+
 src/Utils.o: src/Utils.cpp.o
 .PHONY : src/Utils.o
 
@@ -240,6 +264,9 @@ help:
 	@echo "... src/LettersRound.o"
 	@echo "... src/LettersRound.i"
 	@echo "... src/LettersRound.s"
+	@echo "... src/NumbersRound.o"
+	@echo "... src/NumbersRound.i"
+	@echo "... src/NumbersRound.s"
 	@echo "... src/Utils.o"
 	@echo "... src/Utils.i"
 	@echo "... src/Utils.s"

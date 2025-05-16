@@ -11,6 +11,11 @@
 },
 {
   "directory": "/home/getcandy/show-helper/build/debug",
+  "command": "/usr/bin/c++  -I/home/getcandy/show-helper/include -g -Wall -Wextra -pedantic -std=gnu++17 -o CMakeFiles/dcdl-helper.dir/src/NumbersRound.cpp.o -c /home/getcandy/show-helper/src/NumbersRound.cpp",
+  "file": "/home/getcandy/show-helper/src/NumbersRound.cpp"
+},
+{
+  "directory": "/home/getcandy/show-helper/build/debug",
   "command": "/usr/bin/c++  -I/home/getcandy/show-helper/include -g -Wall -Wextra -pedantic -std=gnu++17 -o CMakeFiles/dcdl-helper.dir/src/Utils.cpp.o -c /home/getcandy/show-helper/src/Utils.cpp",
   "file": "/home/getcandy/show-helper/src/Utils.cpp"
 },

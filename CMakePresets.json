@@ -17,6 +17,14 @@
       }
     },
     {
+      "name": "vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "/home/getcandy/tools/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
       "name": "debug",
       "inherits": "default",
       "description": "Configure Debug build",

@@ -18,11 +18,12 @@ include_directories(include)
 file(GLOB SOURCES
     src/*.cpp
 )
-
+find_package(fmt CONFIG REQUIRED)
 
 
 # Create the executable
 add_executable(dcdl-helper ${SOURCES})
 
+target_link_libraries(dcdl-helper PRIVATE fmt::fmt)
 # (Optional) Extra warning flags
 target_compile_options(dcdl-helper PRIVATE -Wall -Wextra -pedantic)
