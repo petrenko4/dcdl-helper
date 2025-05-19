@@ -14,7 +14,6 @@ std::unordered_set<std::string> Dictionary::load(const std::string &filename) {
     std::string word;
     while (file >> word) {
         dictionary.insert(word);
-        //std::cout << "word inserted: " << word << std::endl;
     }
     return dictionary;
 }

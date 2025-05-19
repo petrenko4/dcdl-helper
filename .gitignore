@@ -1,22 +1,30 @@
-# Build directories and files
+# Build artifacts
 /build/
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
 
-# Compiled outputs
-*.o
-*.so
-*.exe
-*.a
+# vcpkg build artifacts 
+/vcpkg_installed/
+/build/vcpkg_installed/
 
-# IDE
-.vscode/
-.idea/
-cmake-build-*/
+# IDE/editor files
+/.vscode/
+/.vs/
+/.idea/
 
-# System files
+# OS files
 .DS_Store
+Thumbs.db
 
-.exe
+# Test output
+/Testing/
+/CTestTestfile.cmake
+/tests
+
+# Logs
+*.log
+
+# Other
+idk/

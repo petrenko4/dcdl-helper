@@ -4,68 +4,72 @@
 #include <limits>
 #include <set>
 #include <sstream>
+#include <queue>
 #include <optional>
 #include "exprtk.hpp"
 
 std::vector<NumbersRound::OperationDef> NumbersRound::operations;
 
 void NumbersRound::initDefaultOperations() {
-    // Avoid re-initializing the operations if they're already initialized
     if (!operations.empty()) return;
 
-    // Define the default operations
     operations = {
         {" + ", [](int a, int b) { return a + b; }},
         {" - ", [](int a, int b) { return a - b; }},
         {" * ", [](int a, int b) { return a * b; }},
         {" / ", [](int a, int b) -> std::optional<int> {
             return (b != 0 && a % b == 0) ? std::optional<int>(a / b) : std::nullopt;
-        }},
-        {" % ", [](int a, int b) -> std::optional<int> {
-            return (b != 0) ? std::optional<int>(a % b) : std::nullopt;
-        }},
-        {" ^ ", [](int a, int b) { return a ^ b; }},
-        {" pow ", [](int a, int b) -> std::optional<int> {
-            if (b < 0 || (a == 0 && b == 0)) return std::nullopt;
-            try {
-                int res = static_cast<int>(std::pow(a, b));
-                return res;
-            } catch (...) {
-                return std::nullopt;
-            }
-        }},
+        }}
     };
 }
 
 void NumbersRound::addCustomOperation(const std::string& name, Operation func) {
-    // Add the custom operation to the existing list
-    operations.push_back({name, func});
+    operations.push_back({ name, func });
 }
 
-void NumbersRound::solve(std::vector<int> numbers, int target) {
-    initDefaultOperations();  // Ensure default operations are initialized
+std::vector<NumbersRound::OperationDef> NumbersRound::getOperations() {
+    std::vector<OperationDef> ops;
+    for (const auto& op : operations) {
+        ops.push_back(op);
+    }
+    return ops;
+}
+
+std::vector<NumbersRound::Solution> NumbersRound::solve(std::vector<int> numbers, int target) {
 
     struct State {
-        std::vector<int> nums;
+        int result;
         std::vector<std::string> steps;
     };
 
+    constexpr size_t MAX_SOLUTIONS = 100;
+
+    auto comp = [&](const State& a, const State& b) {
+        int da = std::abs(a.result - target);
+        int db = std::abs(b.result - target);
+        if (da != db) return da < db; 
+        if (a.steps.size() != b.steps.size()) return a.steps.size() < b.steps.size(); 
+        return a.steps < b.steps; 
+        };
+
+    std::set<State, decltype(comp)> solutions(comp);
     std::set<std::string> seen;
-    State best;
-    int bestDiff = std::numeric_limits<int>::max();
 
     std::function<void(std::vector<int>, std::vector<std::string>)> recurse;
     recurse = [&](std::vector<int> current, std::vector<std::string> steps) {
-        if (current.size() == 1) {
-            int result = current[0];
-            int diff = std::abs(result - target);
-            if (diff < bestDiff) {
-                bestDiff = diff;
-                best.nums = current;
-                best.steps = steps;
-                if (diff == 0) return;
+        for (int val : current) {
+                State candidate{ val, steps };
+
+                if (solutions.size() < MAX_SOLUTIONS) {
+                    solutions.insert(candidate);
+                }
+                else {
+                    auto worst = std::prev(solutions.end());
+                    if (comp(candidate, *worst)) {
+                        solutions.erase(worst);
+                        solutions.insert(candidate);
+                    }
             }
-            return;
         }
 
         for (size_t i = 0; i < current.size(); ++i) {
@@ -73,11 +77,11 @@ void NumbersRound::solve(std::vector<int> numbers, int target) {
                 if (i == j) continue;
 
                 int a = current[i], b = current[j];
-
                 std::vector<int> remaining;
-                for (size_t k = 0; k < current.size(); ++k)
+                for (size_t k = 0; k < current.size(); ++k) {
                     if (k != i && k != j)
                         remaining.push_back(current[k]);
+                }
 
                 for (const auto& op : operations) {
                     auto resOpt = op.func(a, b);
@@ -87,12 +91,12 @@ void NumbersRound::solve(std::vector<int> numbers, int target) {
                     std::ostringstream oss;
                     oss << a << op.name << b << " = " << res;
 
-                    auto next = remaining;
+                    std::vector<int> next = remaining;
                     next.push_back(res);
-                    auto nextSteps = steps;
+                    std::vector<std::string> nextSteps = steps;
                     nextSteps.push_back(oss.str());
 
-                    std::string key = std::to_string(res) + ":" + std::to_string(next.size());
+                    std::string key = std::to_string(res) + ":" + std::to_string(next.size()) + ":" + oss.str();
                     if (seen.count(key)) continue;
                     seen.insert(key);
 
@@ -100,11 +104,32 @@ void NumbersRound::solve(std::vector<int> numbers, int target) {
                 }
             }
         }
-    };
+        };
 
     recurse(numbers, {});
 
-    std::cout << "Closest result: " << best.nums[0] << "\nSteps:\n";
-    for (size_t i = 0; i < best.steps.size(); ++i)
-        std::cout << (i + 1) << ") " << best.steps[i] << "\n";
+    std::vector<Solution> results;
+    for (const auto& state : solutions) {
+        results.push_back(Solution{ state.result, state.steps });
+    }
+
+    return results;
+}
+
+void NumbersRound::printSolutions(const std::vector<NumbersRound::Solution>& solutions) {
+    if (solutions.empty()) {
+        std::cout << "No solutions found.\n";
+        return;
+    }
+
+    std::cout << "Best solutions (closest results to target):\n\n";
+
+    int count = 1;
+    for (const auto& state : solutions) {
+        std::cout << count++ << ") Result: " << state.result << "\n";
+        for (size_t i = 0; i < state.steps.size(); ++i) {
+            std::cout << "   " << (i + 1) << ". " << state.steps[i] << "\n";
+        }
+        std::cout << "\n";
+    }
 }

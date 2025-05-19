@@ -10,7 +10,8 @@
 #include "LettersRound.hpp"
 #include "Utils.hpp"
 #include "NumbersRound.hpp"
-#include <fmt/core.h>
+#include "exprtk.hpp"
+#include <optional>
 
 void runLettersRound(const std::unordered_set<std::string>& dictionary) {
     std::string letters;
@@ -97,48 +98,127 @@ void runLettersRound(const std::unordered_set<std::string>& dictionary) {
 }
 
 void runNumbersRound() {
-    std::vector<int> numbers;
-    std::cout << "Enter numbers separated by space: ";
-    std::string line;
-    std::getline(std::cin >> std::ws, line);  // read whole line including leading whitespace
 
-    std::istringstream iss(line);
-    int n;
-    while (iss >> n) {
-        numbers.push_back(n);
+    NumbersRound::initDefaultOperations();
+
+    std::cout << "Available operations:\n";
+    for (const auto& [name, _] : NumbersRound::getOperations()) {
+        std::cout << "  - " << name << "\n";
     }
 
-    int target;
-    std::cout << "Enter the target number: ";
-    std::cin >> target;
-
-    NumbersRound::solve(numbers, target);
-
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << "Type 'back' to return to the main menu or 'exit' to quit." << std::endl;
+    std::cout << "\nCommands:\n"
+        << "  'solve' - Solve a numbers round\n"
+        << "  'addop' - Add custom operation (ExprTk expression using x and y)\n"
+        << "  'back'  - Return to main menu\n"
+        << "  'exit'  - Quit the program\n"
+        << "  'listop' - List available operations\n";
     while (true) {
         std::cout << "> ";
         std::string command;
         std::getline(std::cin, command);
+
+        if (command.empty()) {
+            std::cout << std::endl;
+            continue; 
+        }
+
         if (command == "back") {
             break;
         }
         else if (command == "exit") {
             exit(0);
         }
+        else if (command == "addop") {
+            std::cout << "Enter name for operation: ";
+            std::string opname;
+            std::getline(std::cin, opname);
+            opname = " " + opname + " ";
+
+            std::cout << "Enter expression using x and y (e.g., x*x + y): ";
+            std::string expression_str;
+            std::getline(std::cin, expression_str);
+
+            using Expr = exprtk::expression<double>;
+            using Parser = exprtk::parser<double>;
+
+            double x, y;
+            exprtk::symbol_table<double> symbol_table;
+            symbol_table.add_variable("x", x);
+            symbol_table.add_variable("y", y);
+            symbol_table.add_constants();
+
+            Expr expression;
+            expression.register_symbol_table(symbol_table);
+
+            Parser parser;
+            if (!parser.compile(expression_str, expression)) {
+                std::cerr << "Failed to compile expression: " << expression_str << std::endl;
+                continue;
+            }
+
+            NumbersRound::Operation op = [expression, &x, &y](int a, int b) mutable -> int {
+                x = static_cast<double>(a);
+                y = static_cast<double>(b);
+                return static_cast<int>(expression.value());
+                };
+
+            NumbersRound::addCustomOperation(opname, op);
+            std::cout << "Added custom operation '" << opname << "'\n";
+        }
+        else if (command == "solve") {
+            std::vector<int> numbers;
+            std::cout << "Enter numbers separated by space: ";
+            std::string line;
+            std::getline(std::cin >> std::ws, line);
+            std::istringstream iss(line);
+            int n;
+            while (iss >> n) {
+                numbers.push_back(n);
+            }
+            if(numbers.size() > 6) {
+                std::cout << "Too many numbers. Please enter up to 6 numbers." << std::endl;
+                continue;
+            }
+            int target;
+            std::cout << "Enter the target number: ";
+            std::cin >> target;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            NumbersRound::printSolutions(NumbersRound::solve(numbers, target));
+        }
+        else if (command == "listop") {
+            const auto& ops = NumbersRound::getOperations();
+            if (ops.empty()) {
+                std::cout << "No operations defined.\n";
+            }
+            else {
+                std::cout << "Current operations:\n";
+                for (const auto& [name, _] : ops) {
+                    std::cout << "  - " << name << "\n";
+                }
+            }
+        }
+
         else {
-            std::cout << "Unknown command. Use 'back' or 'exit'." << std::endl;
+            std::cout << "Unknown command.\n";
         }
     }
 }
 
 int main() {
-    std::unordered_set<std::string> dictionary = Dictionary::load("../../../data/words.txt");
+    std::unordered_set<std::string> dictionary = Dictionary::load("../../data/words.txt");
 
     while (true) {
         std::cout << "\nChoose a round to play:\n  1. Letters Round\n  2. Numbers Round\n  3. Exit\n> ";
         int choice;
         std::cin >> choice;
+
+        if (std::cin.fail()) {
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            std::cout << "Invalid option." << std::endl;
+            continue;
+        }
 
         if (choice == 1) {
             runLettersRound(dictionary);
@@ -151,6 +231,8 @@ int main() {
         }
         else {
             std::cout << "Invalid option." << std::endl;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            continue;
         }
     }
 

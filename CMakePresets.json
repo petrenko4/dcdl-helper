@@ -7,52 +7,13 @@
   },
   "configurePresets": [
     {
-      "name": "default",
-      "hidden": true,
-      "generator": "Unix Makefiles",
-      "binaryDir": "${sourceDir}/build/${presetName}",
-      "cacheVariables": {
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    },
-    {
       "name": "vcpkg",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "/home/getcandy/tools/vcpkg/scripts/buildsystems/vcpkg.cmake"
-      }
-    },
-    {
-      "name": "debug",
-      "inherits": "default",
-      "description": "Configure Debug build",
-      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "/home/getcandy/tools/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "CMAKE_BUILD_TYPE": "Debug"
       }
-    },
-    {
-      "name": "release",
-      "inherits": "default",
-      "description": "Configure Release build",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
-    }
-  ],
-  "buildPresets": [
-    {
-      "name": "build-debug",
-      "configurePreset": "debug",
-      "description": "Build with Debug config",
-      "jobs": 4
-    },
-    {
-      "name": "build-release",
-      "configurePreset": "release",
-      "description": "Build with Release config",
-      "jobs": 4
     }
   ]
 }
