@@ -13,6 +13,28 @@ DCDL Helper is a C++ command-line tool for solving Countdown-style Letters and N
 
 ---
 
+## Environment Setup
+
+Before building, you **must** set the `VCPKG_ROOT` environment variable to the path where vcpkg is installed. This is required because the build system uses `${VCPKG_ROOT}` in the CMake toolchain path (see `CMakePresets.json`).
+
+Example (Linux/macOS):
+
+```sh
+export VCPKG_ROOT=/path/to/vcpkg
+```
+
+Replace `/path/to/vcpkg` with the actual path to your vcpkg installation directory.
+
+To verify that `VCPKG_ROOT` is set correctly, run:
+
+```sh
+echo $VCPKG_ROOT
+```
+
+This should print the path to your vcpkg directory. 
+
+---
+
 ## Using the Makefile
 
 You can also build and run the project using the provided Makefile:
