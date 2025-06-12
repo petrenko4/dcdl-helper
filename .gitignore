@@ -3,7 +3,6 @@
 /CMakeFiles/
 /CMakeCache.txt
 /cmake_install.cmake
-/Makefile
 
 # vcpkg build artifacts 
 /vcpkg_installed/

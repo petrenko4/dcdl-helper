@@ -15,5 +15,11 @@
         "CMAKE_BUILD_TYPE": "Debug"
       }
     }
+  ],
+  "buildPresets": [
+    {
+      "name": "vcpkg",
+      "configurePreset": "vcpkg"
+    }
   ]
 }

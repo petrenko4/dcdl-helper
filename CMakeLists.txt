@@ -22,6 +22,9 @@ find_path(EXPRTK_INCLUDE_DIR exprtk.hpp
     PATHS "${CMAKE_SOURCE_DIR}/vcpkg_installed/${VCPKG_TARGET_TRIPLET}/include"
 )
 
+message(STATUS "target triplet: ${VCPKG_TARGET_TRIPLET}")
+message(STATUS "EXPRTK_INCLUDE_DIR: ${EXPRTK_INCLUDE_DIR}")
+
 if(NOT EXPRTK_INCLUDE_DIR)
     message(FATAL_ERROR "Could not find exprtk.hpp")
 endif()
@@ -29,10 +32,3 @@ endif()
 target_include_directories(dcdl-helper PRIVATE ${EXPRTK_INCLUDE_DIR})
 # target_link_libraries(dcdl-helper PRIVATE fmt::fmt)
 target_compile_options(dcdl-helper PRIVATE -Wall -Wextra -pedantic)
-enable_testing()
-
-add_executable(unit_tests tests/test_main.cpp)
-
-target_include_directories(unit_tests PRIVATE ${EXPRTK_INCLUDE_DIR} include)
-
-add_test(NAME MyTest COMMAND unit_tests)

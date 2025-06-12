@@ -12,12 +12,55 @@
 #include "NumbersRound.hpp"
 #include "exprtk.hpp"
 #include <optional>
+#include <random>
 
 void runLettersRound(const std::unordered_set<std::string>& dictionary) {
     std::string letters;
-    std::cout << "Enter the letters: ";
-    std::cin >> letters;
-    letters = Utils::trim(letters);
+    char mode;
+    std::cout << "Choose input mode: (m)anual or (s)Vowel/Consonant selection mode? ";
+    std::cin >> mode;
+
+    if (mode == 'm' || mode == 'M') {
+        std::cout << "Enter the letters: ";
+        std::cin >> letters;
+        letters = Utils::trim(letters);
+    }
+    else if (mode == 's' || mode == 'S') {
+        const std::string vowels = "AEIOU";
+        const std::string consonants = "BCDFGHJKLMNPQRSTVWXYZ";
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        std::string input;
+        while (true) {
+            std::cout << "Choose letter " << (letters.size() + 1)
+                << " (v for vowel, c for consonant, done to finish): ";
+            std::cin >> input;
+
+            if (input == "v" || input == "V") {
+                std::uniform_int_distribution<> dis(0, vowels.size() - 1);
+                letters += vowels[dis(gen)];
+            }
+            else if (input == "c" || input == "C") {
+                std::uniform_int_distribution<> dis(0, consonants.size() - 1);
+                letters += consonants[dis(gen)];
+            }
+            else if (input == "done" || input == "DONE") {
+                break;
+            }
+            else {
+                std::cout << "Invalid input. Use 'v', 'c', or 'done'.\n";
+            }
+        }
+
+        std::cout << "Generated letters: " << letters << std::endl;
+    }
+    else {
+        std::cout << "Invalid mode selected. Defaulting to manual." << std::endl;
+        std::cout << "Enter the letters: ";
+        std::cin >> letters;
+        letters = Utils::trim(letters);
+    }
 
     std::vector<std::string> validWords;
     LettersRound::generateWords(letters, dictionary, validWords);
@@ -43,8 +86,11 @@ void runLettersRound(const std::unordered_set<std::string>& dictionary) {
         std::string command;
         iss >> command;
 
-        if (command == "exit" || command == "back") {
+        if (command == "back") {
             break;
+        }
+        else if (command == "exit") {
+            exit(0);
         }
         else if (command == "next") {
             int count;
@@ -119,7 +165,7 @@ void runNumbersRound() {
 
         if (command.empty()) {
             std::cout << std::endl;
-            continue; 
+            continue;
         }
 
         if (command == "back") {
@@ -175,7 +221,7 @@ void runNumbersRound() {
             while (iss >> n) {
                 numbers.push_back(n);
             }
-            if(numbers.size() > 6) {
+            if (numbers.size() > 6) {
                 std::cout << "Too many numbers. Please enter up to 6 numbers." << std::endl;
                 continue;
             }
@@ -206,7 +252,7 @@ void runNumbersRound() {
 }
 
 int main() {
-    std::unordered_set<std::string> dictionary = Dictionary::load("../../data/words.txt");
+    std::unordered_set<std::string> dictionary = Dictionary::load("data/words.txt");
 
     while (true) {
         std::cout << "\nChoose a round to play:\n  1. Letters Round\n  2. Numbers Round\n  3. Exit\n> ";
@@ -214,8 +260,8 @@ int main() {
         std::cin >> choice;
 
         if (std::cin.fail()) {
-            std::cin.clear(); 
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Invalid option." << std::endl;
             continue;
         }
@@ -231,7 +277,7 @@ int main() {
         }
         else {
             std::cout << "Invalid option." << std::endl;
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
     }
