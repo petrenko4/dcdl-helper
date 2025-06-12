@@ -9,6 +9,7 @@ DCDL Helper is a C++ command-line tool for solving Countdown-style Letters and N
 - C++17 compatible compiler (e.g., g++ 7+ or clang 6+)
 - [CMake](https://cmake.org/) 3.10 or newer
 - [vcpkg](https://github.com/microsoft/vcpkg) (for dependency management)
+- [Ninja](https://ninja-build.org/) build system (used as the linker by default)
 - [exprtk](https://github.com/ArashPartow/exprtk) libraries (installed automatically via vcpkg)
 
 ---
